@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<title><?php if (is_home () ) { bloginfo('name'); } elseif (is_category() || is_tag()) { single_cat_title(); echo ' &bull; ' ; bloginfo('name'); } elseif (is_single() || is_page()) { single_post_title(); } else { wp_title('',true); } ?></title>
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen, print" />
+<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<link rel="shortcut icon" href="http://law.case.edu//images/favicon.ico" />
+
+
+<?php
+
+
+wp_enqueue_script('mainnavmenu', get_bloginfo('stylesheet_directory') . '/js/mainnavmenu.js', array('jquery'));
+
+wp_head(); ?>
+
+
+
+</head>
+<body <?php body_class(); ?>>
+
+<div id="site">
+ <!--<div><iframe src="http://case.edu/cwruheader/cwru-header.html" width="100%" height="55" frameborder="0" scrolling="no"></iframe></div> -->
+
+<div id="header">
+<div id="headercontent">
+	<div id="title"><h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" ><?php bloginfo('name'); ?></a></h1>
+
+</div> <!-- end div title -->
+
+
+
+<div id="headerchatwidget"><ul>
+
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('RightHead') ) : ?>
+        <?php endif; ?>
+               </ul></div> <!-- end div headerchatwidget -->
+
+
+
+</div> <!-- end div headercontent -->
+</div> <!-- end div header -->
+
+<div id="navline">
+
+<div class="navlinecontents">
+
+
+
+
+
+
+
+<?php wp_nav_menu (array(
+	'container_class' => 'menu_navline',
+	'theme_location' => 'top_links')); ?>
+
+
+
+
+
+<div class="breadcrumb">
+	<div class="breadcrumbW">
+	<div class="breadcrumbC">
+
+	<span class="breadcrumb"><a href="http://www.law.case.edu"><?php _e("Law School Home") ?></a></span> | <span class="section">
+
+	<span class="breadcrumb">
+	<a href="<?php bloginfo('url'); ?>"><?php _e("Library") ?></a> | <a href="/database-finder"><?php _e("Library Databases") ?></a> | <?php _e("DB Search Result") ?> <span class="section">
+	</span><!-- end span breadcrumb -->
+
+
+	</span> <!-- end span section -->
+	</div> <!-- end div breadcrumbC -->
+	</div> <!-- end div breadcrumbW -->
+</div> <!-- end div breadcrumb -->
+
+</div> <!-- end div navlinecontents -->
+
+
+
+
+</div> <!-- end div navline -->
+
+
+<div id="wrap">
+<div id="pagecontents">
